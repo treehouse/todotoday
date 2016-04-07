@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:fragment="head" lang="en">
+    <meta charset="UTF-8"/>
+    <meta description="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css"/>
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
+
+    <title>TodoToday</title>
+</head>
+<body>
+<nav th:fragment="nav">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">TodoToday</a>
+            <ul class="right">
+                <li sec:authentication="name"></li>
+                <li>
+                    <form class="logout inline" th:action="@{/logout}" method="post">
+                        <button type="submit"><i class="material-icons">power_settings_new</i></button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div th:fragment="flash" th:if="${flash != null}" class="container">
+    <div class="message">
+        <i class="right material-icons" data-close="">close</i>
+        <div th:classappend="${#strings.toLowerCase(flash.status)}" th:text="${flash.message}" class="flash"></div>
+    </div>
+</div>
+<div th:fragment="scripts">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script type="text/javascript" th:src="@{/assets/js/app.js}"></script>
+</div>
+</body>
+</html>

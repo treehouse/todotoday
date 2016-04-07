@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout :: head"></head>
+<body>
+    <nav th:replace="layout :: nav"></nav>
+    <div th:replace="layout :: flash"></div>
+    <div class="container">
+        <ul>
+            <li th:each="task : ${tasks}">
+                <form method="post" th:action="@{/mark}" class="inline todo-item">
+                    <input type="hidden" name="id" th:value="${task.id}"/>
+                    <input type="checkbox" th:id="|checked_${task.id}|" th:checked="${task.complete}"/>
+                    <label th:for="|checked_${task.id}|" th:text="${task.description}"></label>
+                </form>
+            </li>
+            <li>
+                <form method="post" th:object="${newTask}" th:action="@{/tasks}" class="inline new-item">
+                    <label><input type="text" th:field="*{description}" placeholder="New task" autocomplete="off"/></label>
+                </form>
+            </li>
+        </ul>
+    </div>
+    <div th:replace="layout :: scripts"></div>
+</body>
+</html>

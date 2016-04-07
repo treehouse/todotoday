@@ -1,0 +1,43 @@
+buildscript {
+	ext {
+		springBootVersion = '1.3.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot' 
+
+jar {
+	baseName = 'todotoday'
+	version = '0.0.1-SNAPSHOT'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'org.springframework:spring-orm:4.2.4.RELEASE'
+    compile 'org.springframework.data:spring-data-jpa:1.9.2.RELEASE'
+    compile 'org.hibernate:hibernate-core:5.0.6.Final'
+    compile 'org.hibernate:hibernate-entitymanager:5.0.6.Final'
+	compile 'org.apache.tomcat:tomcat-dbcp:8.0.30'
+
+	runtime 'com.h2database:h2'
+    runtime 'javax.transaction:jta:1.1'
+    runtime 'org.aspectj:aspectjweaver:1.8.7'
+
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.9'
+}

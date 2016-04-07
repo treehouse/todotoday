@@ -1,0 +1,115 @@
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+
+* {
+    font-family: 'varela round';
+}
+
+.inline {
+    display: inline-block;
+}
+
+nav {
+    background: #5fcf80;
+}
+
+nav .nav-wrapper .brand-logo {
+    left: initial;
+    -webkit-transform: none;
+    transform: none;
+    font-weight: 300;
+}
+
+.card .card-image img {
+    padding: 20px;
+}
+
+form.login button[type=submit] {
+    width: 100%;
+    padding: 10px;
+    height: initial;
+}
+
+form.login button[type=submit], form.login button[type=submit]:hover {
+    background: #117FC4;
+}
+
+ul li {
+    margin-bottom: 6px;
+}
+
+[type="checkbox"]+label::before {
+    border-color: #dad7de;
+    border-width: 1px;
+    width: 36px;
+    height: 36px;
+    transition: none;
+    -webkit-transition: none;
+}
+
+[type="checkbox"]+label {
+    font-size: 2rem;
+    line-height: 3rem;
+    height: 3rem;
+    padding-left: 46px;
+    font-weight: 200;
+    color: #555;
+}
+
+[type="checkbox"]:checked+label {
+    color: #d0d0d0;
+}
+
+[type="checkbox"]:checked+label::before {
+    top: -4px;
+    left: -7px;
+    width: 20px;
+    height: 34px;
+    border-bottom: 3px solid #5fcf80;
+    border-right: 3px solid #5fcf80;
+}
+
+.logout button {
+    border: none;
+    background: transparent;
+}
+
+.new-item label {
+    position: relative;
+    font-size: 2rem;
+    line-height: 3rem;
+    height: 3rem;
+    padding-left: 46px;
+    font-weight: 200;
+    color: #555;
+}
+
+.new-item label::before {
+    position:absolute;
+    top: -4px;
+    left: 2px;
+    display: inline-block;
+    content: 'add';
+    font-family: 'material icons';
+    width: 36px;
+    height: 36px;
+    font-size: 2rem;
+    color: rgba(131,140,199,0.2);
+    direction: ltr;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+.new-item input[type=text], .new-item input[type=text]:focus {
+    border: none;
+    box-shadow: none;
+    font-size: 2rem;
+    color: rgba(131,140,199,1);
+}
+
+.new-item input[type=text]::-webkit-input-placeholder {
+    color: rgba(131,140,199,0.4);
+}

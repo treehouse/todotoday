@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout :: head"></head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <div class="card">
+                    <div class="card-image">
+                        <img th:src="@{/assets/images/desktop-computer.svg}" alt="desktop computer" />
+                    </div>
+                    <div class="card-content">
+                        <div th:replace="layout :: flash"></div>
+                        <form th:action="@{/login}" th:object="${user}" method="post" class="login">
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                            <div class="row">
+                                <div class="col s12">
+                                    <input th:field="*{username}" placeholder="username"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+                                    <input type="password" th:field="*{password}" placeholder="password"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+                                    <button type="submit" class="btn">Login</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="layout :: scripts"></div>
+</body>
+</html>
