@@ -1,5 +1,6 @@
 package com.teamtreehouse.todotoday.web.controller;
 
+import com.teamtreehouse.todotoday.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ public class LoginController {
 
     @RequestMapping(path = "/login", method = RequestMethod.GET)
     public String loginForm(Model model, HttpServletRequest request) {
+        model.addAttribute("user", new User());
         try {
             Object flash = request.getSession().getAttribute("flash");
             model.addAttribute("flash", flash);
