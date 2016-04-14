@@ -1,8 +1,11 @@
 package com.teamtreehouse.todotoday.web.controller;
 
 import com.teamtreehouse.todotoday.model.Task;
+import com.teamtreehouse.todotoday.model.User;
 import com.teamtreehouse.todotoday.service.TaskService;
+import com.teamtreehouse.todotoday.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +19,9 @@ import java.security.Principal;
 public class TaskController {
     @Autowired
     private TaskService taskService;
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping({"/", "/todo"})
     public String taskList(Model model) {
@@ -33,7 +39,9 @@ public class TaskController {
     }
 
     @RequestMapping(path = "/tasks", method = RequestMethod.POST)
-    public String addTask(@ModelAttribute Task task) {
+    public String addTask(@ModelAttribute Task task, Principal principal) {
+        User user = (User)((UsernamePasswordAuthenticationToken)principal).getPrincipal();
+        task.setUser(user);
         taskService.save(task);
         return "redirect:/";
     }
