@@ -31,6 +31,7 @@ dependencies {
     compile 'org.hibernate:hibernate-entitymanager:5.0.6.Final'
 	compile 'org.apache.tomcat:tomcat-dbcp:8.0.30'
 	compile 'org.springframework.boot:spring-boot-starter-security'
+	compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4:2.1.2.RELEASE'
 
 	runtime 'com.h2database:h2'
     runtime 'javax.transaction:jta:1.1'

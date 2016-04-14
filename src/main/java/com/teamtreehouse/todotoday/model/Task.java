@@ -1,9 +1,6 @@
 package com.teamtreehouse.todotoday.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Task {
@@ -14,6 +11,10 @@ public class Task {
     private String description;
 
     private boolean complete;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Task() {}
 
@@ -39,5 +40,13 @@ public class Task {
 
     public void setComplete(boolean complete) {
         this.complete = complete;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

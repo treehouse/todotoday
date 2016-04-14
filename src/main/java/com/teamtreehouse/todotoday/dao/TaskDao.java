@@ -12,5 +12,6 @@ import java.util.List;
 
 @Repository
 public interface TaskDao extends CrudRepository<Task, Long> {
-
+    @Query("select t from Task t where t.user.id=:#{principal.id}")
+    List<Task> findAll();
 }
